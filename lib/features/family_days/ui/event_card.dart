@@ -62,7 +62,7 @@ class EventCard extends StatelessWidget {
                                 ),
                               ])
                             : Image.asset(
-                                'images/amplify.png',
+                                'images/logo_square.jpg',
                                 fit: BoxFit.contain,
                               ),
                       ),
@@ -74,7 +74,7 @@ class EventCard extends StatelessWidget {
                           fit: BoxFit.scaleDown,
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            event.location,
+                            event.description,
                             style: Theme.of(context)
                                 .textTheme
                                 .headline5!
@@ -98,7 +98,7 @@ class EventCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8),
                         child: Text(
-                          event.description,
+                          event.location,
                           style: Theme.of(context)
                               .textTheme
                               .subtitle1!
