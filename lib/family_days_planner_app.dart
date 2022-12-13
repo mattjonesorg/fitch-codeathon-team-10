@@ -1,18 +1,10 @@
-import 'package:amplify_api/amplify_api.dart';
-import 'package:amplify_datastore/amplify_datastore.dart';
-import 'package:my_app/family_days_planner_app.dart';
-import 'package:flutter/material.dart';
-import 'package:amplify_flutter/amplify_flutter.dart';
-import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_app/models/ModelProvider.dart';
-import 'amplifyconfiguration.dart';
-import 'package:my_app/features/family_days/ui/events_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:amplify_authenticator/amplify_authenticator.dart';
-import 'package:my_app/common/navigation/router/routes.dart';
 import 'package:my_app/common/utils/colors.dart' as constants;
+
+import 'common/navigation/router/routes.dart';
+import 'features/family_days/ui/events_list_page.dart';
 
 class FamilyDaysPlannerApp extends StatelessWidget {
   const FamilyDaysPlannerApp({
@@ -62,32 +54,3 @@ class FamilyDaysPlannerApp extends StatelessWidget {
     );
   }
 }
-
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  bool isAmplifySuccessfullyConfigured = false;
-  try {
-    await _configureAmplify();
-    isAmplifySuccessfullyConfigured = true;
-  } on AmplifyAlreadyConfiguredException {
-    debugPrint('Amplify configuration failed.');
-  }
-
-  runApp(
-    ProviderScope(
-      child: FamilyDaysPlannerApp(
-        isAmplifySuccessfullyConfigured: isAmplifySuccessfullyConfigured,
-      ),
-    ),
-  );
-}
-
-Future<void> _configureAmplify() async {
-  await Amplify.addPlugins([
-    AmplifyAuthCognito(),
-    AmplifyDataStore(modelProvider: ModelProvider.instance),
-    AmplifyAPI(),
-  ]);
-  await Amplify.configure(amplifyconfig);
-}
-

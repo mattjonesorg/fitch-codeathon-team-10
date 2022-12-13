@@ -10,6 +10,14 @@
       "StackName": "amplify-voceltheapp-dev-111127",
       "StackId": "arn:aws:cloudformation:us-east-1:605038686522:stack/amplify-voceltheapp-dev-111127/2ed00420-7b09-11ed-8103-0ee0c0951ab5",
       "AmplifyAppId": "d3scebqmesmrce"
+    },
+    "categories": {
+      "auth": {
+        "voceltheappdeca70b9": {}
+      },
+      "api": {
+        "voceltheapp": {}
+      }
     }
   }
 }
